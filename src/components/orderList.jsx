@@ -36,6 +36,11 @@ const OrderList = () => {
           className={`order-card ${completedOrders.includes(id) ? "completed" : ""}`}
         >
           <h3>#{id} | {order.type}</h3>
+          <hr />
+          <div>
+            <span className="tag" >Customer: {order.customerName} </span>
+          </div>
+          <h4 className="tag">Client: {order.isClient? "Yes":"No"} </h4>
 
           <div className="order-tags">
             <span className={order.isIced ? "tag iced" : "tag warm"}>
@@ -47,6 +52,7 @@ const OrderList = () => {
             <span className="tag">Strength: {order.strength}</span>
             <span className="tag">Sugar: {order.sugar}</span>
           </div>
+          <span>{order.timeStamp}</span>
 
           {!completedOrders.includes(id) && (
             <button className="complete-btn" onClick={() => handleComplete(id)}>
